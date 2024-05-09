@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:id="@+id/imgMovie"
             tools:srcCompat="@tools:sample/avatars"
-            android:scaleType="centerCrop"/>
+            android:scaleType="fitCenter"/>
     </androidx.cardview.widget.CardView>
     <TextView
         android:layout_width="match_parent"

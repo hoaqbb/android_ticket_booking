@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinema_ticket_booking_app.R
 import com.example.cinema_ticket_booking_app.models.Movie
+import com.squareup.picasso.Picasso
 
-class MovieAdapter (var listMovie: List<Movie>): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter(var listMovie: List<Movie>, private val listener: OnItemClickListener): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     class MovieViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val imgMovie: ImageView = itemView.findViewById(R.id.imgMovie)
@@ -23,11 +24,22 @@ class MovieAdapter (var listMovie: List<Movie>): RecyclerView.Adapter<MovieAdapt
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val currentItem = listMovie[position]
-        holder.imgMovie.setImageResource(currentItem.imgMovie)
-        holder.txtMovieName.text = currentItem.movieName
+        Picasso.get().load(currentItem.movie_img).into(holder.imgMovie)
+        holder.imgMovie.setOnClickListener {
+            listener.onItemClick(position)
+        }
+        holder.txtMovieName.text = currentItem.movie_name
+        holder.txtMovieName.setOnClickListener {
+                listener.onItemClick(position)
+        }
     }
 
     override fun getItemCount(): Int {
         return listMovie.size
     }
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
 }
+

@@ -1,43 +1,29 @@
 package com.example.cinema_ticket_booking_app.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.example.cinema_ticket_booking_app.R
+import com.example.cinema_ticket_booking_app.activities.LoginActivity
+import com.example.cinema_ticket_booking_app.activities.SignUpActivity
+import com.example.cinema_ticket_booking_app.databinding.FragmentAccountBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AccountFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class AccountFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class AccountFragment : Fragment(R.layout.fragment_account) {
+    private lateinit var binding: FragmentAccountBinding
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding = FragmentAccountBinding.bind(view)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        binding.btnLogin.setOnClickListener{
+            val intent = Intent(this@AccountFragment.context, LoginActivity::class.java)
+            startActivity(intent)
         }
+
+        binding.btnRegister.setOnClickListener{
+            val intent = Intent(this@AccountFragment.context, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false)
-    }
-
-
-
 }

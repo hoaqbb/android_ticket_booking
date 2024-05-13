@@ -12,4 +12,8 @@
     <color name="colorPrimary">#272727</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#E53935</color>
+    <color name="blueCustom">#024A9C</color>
+    <color name="lightGrey">#D5D5D5</color>
+    <color name="orange">#FF5722</color>
 </resources>
+

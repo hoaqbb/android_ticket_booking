@@ -3,8 +3,12 @@ package com.example.cinema_ticket_booking_app.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
+import com.example.cinema_ticket_booking_app.R
 import com.example.cinema_ticket_booking_app.api.ApiCall
 import com.example.cinema_ticket_booking_app.databinding.ActivityDetailMovieBinding
+import com.example.cinema_ticket_booking_app.fragments.InfoMovieFragment
+import com.example.cinema_ticket_booking_app.fragments.ShowtimesMovieFragment
 import com.example.cinema_ticket_booking_app.models.Movie
 import com.squareup.picasso.Picasso
 import retrofit2.Call
@@ -18,21 +22,39 @@ class DetailMovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val movie_id = intent.getIntExtra("movie_id", -1)
+        val movieId = intent.getIntExtra("movie_id", -1)
 
-        getMovieById(movie_id)
+        val infoFragment = InfoMovieFragment()
+        val showtimesFragment = ShowtimesMovieFragment()
+
+        getMovieById(movieId)
+
+        //hien thi fragment info ban dau
+        changeFragment(infoFragment, movieId)
+
+        //thay doi fragment khi click Info
+        binding.txtInfo.setOnClickListener{
+            changeFragment(infoFragment, movieId)
+        }
+        //thay doi fragment khi click Showtimes
+        binding.txtShowtimes.setOnClickListener {
+            changeFragment(showtimesFragment, movieId)
+        }
 
     }
+
+
     private fun getMovieById(movie_id: Int){
         val call = ApiCall.service.getMovieById(movie_id)
         call.enqueue(object : Callback<Movie> {
             override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
                 if(response.isSuccessful){
-                    //luu y tra ve doi tuong chu ko phai mang doi tuong
-                    val movie = response.body()!!
+                    val movie = response.body()!! //luu y tra ve doi tuong chu ko phai mang doi tuong
                     binding.txtMovieName.text = movie.movie_name
                     Picasso.get().load(movie.movie_img).into(binding.imgMovie)
-                    binding.txtDuration.text = movie.description
+                    binding.txtDuration.text = movie.duration.toString()
+                    binding.txtReleaseDate.text = movie.release_date
+
                 }
             }
             override fun onFailure(call: Call<Movie>, t: Throwable) {
@@ -40,5 +62,16 @@ class DetailMovieActivity : AppCompatActivity() {
                 Log.d("a", t.cause.toString())
             }
         })
+    }
+
+    //thay doi noi dung activity
+    private fun changeFragment(fragment: Fragment, movieId: Int){
+        val bundle = Bundle()
+        bundle.putInt("id", movieId)
+        fragment.arguments = bundle
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.frameLayout, fragment)
+            commit()
+        }
     }
 }

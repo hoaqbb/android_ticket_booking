@@ -30,7 +30,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MovieAdapter.OnItemClickL
         imageSlider = binding.slider
         slideShow(imageSlider)
 
-        //
+        //Mac dinh hien thi On showing
         fetchMovies(true)
         //Su kien click tren Now showing
         binding.txtNowShowing.setOnClickListener{

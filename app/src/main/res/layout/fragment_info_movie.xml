@@ -4,50 +4,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.InfoMovieFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:backgroundTint="@color/light_gray">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="2dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"/>
+            android:text="Description"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/txtMovieDes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Movie description"/>
+            android:text=""/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="8dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"/>
+            android:text="Actors"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/txtActors"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Movie's actors"/>
+            android:text=""/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="8dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"/>
+            android:text="Directors"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/txtDirectors"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Movie's directors"/>
+            android:text=""/>
     </LinearLayout>
 </LinearLayout>
+
+<!--    <?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--tools:context=".fragments.InfoMovieFragment"-->
+<!--android:orientation="vertical"-->
+<!--android:backgroundTint="@color/light_gray">-->
+<!--<TextView-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:text="Hello"-->
+<!--    android:textSize="100sp"-->
+<!--    android:gravity="center"/>-->
+<!--</LinearLayout>-->

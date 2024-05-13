@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavBar.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.home -> makeCurrentFragment(homeFragment)
-                R.id.location -> makeCurrentFragment(cinemaFragment)
+                R.id.cinema -> makeCurrentFragment(cinemaFragment)
                 R.id.account -> makeCurrentFragment(accountFragment)
             }
             true

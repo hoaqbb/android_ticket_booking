@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiCall {
 
     companion object {
-        //http://192.168.1.6:3000/
+        //Luu y: thay dia chi ip thanh dia chi ip may
         private val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("http://192.168.1.8:3000/")
             .addConverterFactory(GsonConverterFactory.create())

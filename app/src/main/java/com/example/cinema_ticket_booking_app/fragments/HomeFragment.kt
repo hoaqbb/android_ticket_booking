@@ -30,15 +30,20 @@ class HomeFragment : Fragment(R.layout.fragment_home), MovieAdapter.OnItemClickL
         imageSlider = binding.slider
         slideShow(imageSlider)
 
+        binding.txtNowShowing.setTextColor(binding.txtNowShowing.getContext().getColor(R.color.blueCustom))
         //Mac dinh hien thi On showing
         fetchMovies(true)
         //Su kien click tren Now showing
         binding.txtNowShowing.setOnClickListener{
             fetchMovies(true)
+            binding.txtNowShowing.setTextColor(binding.txtNowShowing.getContext().getColor(R.color.blueCustom))
+            binding.txtComingSoon.setTextColor(binding.txtComingSoon.getContext().getColor(R.color.light_gray))
         }
-        //Su kien click tren Comming soon
-        binding.txtCommingSoon.setOnClickListener{
+        //Su kien click tren Coming soon
+        binding.txtComingSoon.setOnClickListener{
             fetchMovies(false)
+            binding.txtNowShowing.setTextColor(binding.txtNowShowing.getContext().getColor(R.color.light_gray))
+            binding.txtComingSoon.setTextColor(binding.txtComingSoon.getContext().getColor(R.color.blueCustom))
         }
     }
 

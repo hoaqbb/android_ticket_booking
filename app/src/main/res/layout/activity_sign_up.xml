@@ -35,36 +35,77 @@
             android:layout_margin="10dp"
             android:orientation="vertical">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtFullnameContainer"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtFullName"
-                android:drawableStart="@drawable/baseline_account_circle_24"
-                android:background="@drawable/edit_text_background"
-                android:layout_marginVertical="5dp"
-                android:hint="Fullname"
-                android:minHeight="48dp" />
+                app:errorEnabled="true"
+                app:helperText="Fullname is required field."
+                app:helperTextTextColor="@color/red">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtFullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_account_circle_24"
+                    android:hint="Enter your fullname"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:textColorHint="@color/light_gray" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtUsernameContainer"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtEmail"
-                android:drawableStart="@drawable/baseline_mail_outline_24"
-                android:background="@drawable/edit_text_background"
-                android:hint="Email"
-                android:layout_marginVertical="5dp"
-                android:minHeight="48dp" />
+                app:errorEnabled="true"
+                app:helperText="Username is required field."
+                app:helperTextTextColor="@color/red">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_account_circle_24"
+                    android:hint="Enter your username"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:textColorHint="@color/light_gray" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtEmailContainer"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:helperText="Email is required field."
+                app:helperTextTextColor="@color/red">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_mail_outline_24"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:lines="1"
+                    android:textColorHint="@color/light_gray" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Gender (Optional):"
-                    android:textColor="@color/light_gray" />
+                    android:textColor="@color/black" />
 
                 <RadioGroup
                     android:id="@+id/radio"
@@ -73,44 +114,66 @@
                     android:orientation="horizontal">
 
                     <RadioButton
+                        android:id="@+id/rdMale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Male"
-                        android:id="@+id/rdMale"/>
+                        android:text="Male" />
 
                     <RadioButton
+                        android:id="@+id/rdFemale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Female"
-                        android:id="@+id/rdFemale"/>
+                        android:text="Female" />
 
                     <RadioButton
+                        android:id="@+id/rdOthers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Others"
-                        android:id="@+id/rdOthers"/>
+                        android:text="Others" />
                 </RadioGroup>
             </LinearLayout>
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtPasswordContainer"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtPassword"
-                android:drawableStart="@drawable/baseline_lock_24"
-                android:background="@drawable/edit_text_background"
-                android:layout_marginVertical="5dp"
-                android:hint="Password"
-                android:minHeight="48dp" />
+                app:errorEnabled="true"
+                app:passwordToggleEnabled="true"
+                app:helperText="Password is required field."
+                app:helperTextTextColor="@color/red">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_lock_24"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:textColorHint="@color/light_gray" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtConfirmPasswordContainer"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtConfirmPassword"
-                android:drawableStart="@drawable/baseline_lock_24"
-                android:background="@drawable/edit_text_background"
-                android:layout_marginVertical="5dp"
-                android:hint="Confirm password"
-                android:minHeight="48dp" />
+                app:errorEnabled="true"
+                app:passwordToggleEnabled="true"
+                app:helperText="Confirm password is required field."
+                app:helperTextTextColor="@color/red">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_lock_24"
+                    android:hint="Confirm password"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:textColorHint="@color/light_gray" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
@@ -118,6 +181,8 @@
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:text="Sign Up" />
 
         <LinearLayout

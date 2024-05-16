@@ -10,40 +10,59 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+<!--        <VideoView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:-->
+
+<!--            />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <androidx.cardview.widget.CardView
-            android:layout_width="150dp"
-            android:layout_height="200dp"
-            app:cardCornerRadius="8dp">
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            app:cardCornerRadius="10dp"
+            android:layout_margin="10dp">
+
             <ImageView
                 android:id="@+id/imgMovie"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 tools:srcCompat="@tools:sample/avatars" />
+
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/txtMovieName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="This is movie name"
-                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:textSize="20dp"
-                android:textColor="@color/black"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/txtDuration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
+
             <TextView
                 android:id="@+id/txtReleaseDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </LinearLayout>
 
     </LinearLayout>
@@ -52,29 +71,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp">
-        <TextView
-            android:id="@+id/txtInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Info"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:layout_marginRight="10dp"/>
+
         <TextView
             android:id="@+id/txtShowtimes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:text="Showtimes"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_marginLeft="10dp"/>
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Info"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

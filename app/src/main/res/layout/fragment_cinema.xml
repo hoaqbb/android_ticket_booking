@@ -6,14 +6,13 @@
     tools:context=".fragments.CinemaFragment"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Cinema"
         android:textColor="@color/black"
-        android:textSize="26sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"/>

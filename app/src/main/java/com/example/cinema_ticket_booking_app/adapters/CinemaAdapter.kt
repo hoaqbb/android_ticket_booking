@@ -26,7 +26,7 @@ class CinemaAdapter (private var listCinema: List<Cinema>, private var listener:
     override fun onBindViewHolder(holder: CinemaViewHolder, position: Int) {
         val currentItem = listCinema[position]
         Picasso.get().load(currentItem.cinema_img).into(holder.imgCinema)
-        holder.txtCinemaName.text = currentItem.cinemaName
+        holder.txtCinemaName.text = currentItem.cinema_name
         holder.txtAddress.text = currentItem.address
         holder.txtSDT.text = currentItem.sdt
         holder.itemView.setOnClickListener{

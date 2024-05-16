@@ -1,7 +1,9 @@
 package com.example.cinema_ticket_booking_app.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.support.annotation.NonNull
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.cinema_ticket_booking_app.R
@@ -10,6 +12,9 @@ import com.example.cinema_ticket_booking_app.databinding.ActivityDetailMovieBind
 import com.example.cinema_ticket_booking_app.fragments.InfoMovieFragment
 import com.example.cinema_ticket_booking_app.fragments.ShowtimesMovieFragment
 import com.example.cinema_ticket_booking_app.models.Movie
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,6 +45,31 @@ class DetailMovieActivity : AppCompatActivity() {
         binding.txtShowtimes.setOnClickListener {
             changeFragment(showtimesFragment, movieId)
         }
+
+      //this is video
+        val youTubePlayerView = binding.youtubePlayerView
+        var youTubePlayer: YouTubePlayer? = null
+
+        lifecycle.addObserver(youTubePlayerView)
+
+        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            override fun onReady(@NonNull youTubePlayer: YouTubePlayer) {
+                val videoId = "Mm-_TKuK15A"
+                youTubePlayer.cueVideo(videoId, 0f)
+                youTubePlayer.pause()
+            }
+
+            override fun onStateChange(
+                youTubePlayer: YouTubePlayer,
+                state: PlayerConstants.PlayerState
+            ) {
+                if (state == PlayerConstants.PlayerState.PLAYING) {
+                    val intent =
+                        Intent(this@DetailMovieActivity, FullScreenActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+        })
 
     }
 

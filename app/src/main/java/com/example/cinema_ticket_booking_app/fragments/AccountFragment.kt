@@ -1,13 +1,11 @@
 package com.example.cinema_ticket_booking_app.fragments
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import com.example.cinema_ticket_booking_app.R
-import com.example.cinema_ticket_booking_app.activities.LoginActivity
-import com.example.cinema_ticket_booking_app.activities.SignUpActivity
 import com.example.cinema_ticket_booking_app.databinding.FragmentAccountBinding
+import com.example.cinema_ticket_booking_app.session.UserSession
 
 
 class AccountFragment : Fragment(R.layout.fragment_account) {
@@ -15,15 +13,24 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentAccountBinding.bind(view)
 
-        binding.btnLogin.setOnClickListener{
-            val intent = Intent(this@AccountFragment.context, LoginActivity::class.java)
-            startActivity(intent)
+        //kiem tra user da dang nhap chua
+        //true: su dung ProfileUserFragment
+        if(UserSession.loadUserSession(requireContext()).user_id!!>0){
+            binding.btnLogout.visibility = View.VISIBLE;
+            makeCurrentFragment(ProfileUserFragment())
+        } else{
+            //false: su dung LoginFragment
+            makeCurrentFragment(LoginFragment())
         }
 
-        binding.btnRegister.setOnClickListener{
-            val intent = Intent(this@AccountFragment.context, SignUpActivity::class.java)
-            startActivity(intent)
+        binding.btnLogout.setOnClickListener {
+            UserSession.clearUserSession(requireContext())
         }
-
     }
+
+    private fun makeCurrentFragment(fragment: Fragment) =
+        childFragmentManager.beginTransaction().apply {
+            replace(R.id.frameLayout, fragment)
+            commitNow()
+        }
 }

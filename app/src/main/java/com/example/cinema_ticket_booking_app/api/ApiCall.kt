@@ -8,7 +8,7 @@ class ApiCall {
     companion object {
         //Luu y: thay dia chi ip thanh dia chi ip may
         private val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.1.88:3000/") //sua IP o day nha
+            .baseUrl("http://172.20.10.9:3000/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

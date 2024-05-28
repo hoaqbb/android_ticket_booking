@@ -77,24 +77,25 @@
         android:padding="5dp">
 
         <TextView
-            android:id="@+id/txtShowtimes"
+            android:id="@+id/txtInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
+            android:text="Info"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txtShowtimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="Showtimes"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txtInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Info"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+
     </LinearLayout>
 
     <FrameLayout

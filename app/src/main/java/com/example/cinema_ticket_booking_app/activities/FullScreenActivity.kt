@@ -1,6 +1,5 @@
 package com.example.cinema_ticket_booking_app.activities
 
-import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.os.Bundle
@@ -11,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.example.cinema_ticket_booking_app.databinding.ActivityFullScreenBinding
-import com.example.cinema_ticket_booking_app.fragments.HomeFragment
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.FullscreenListener
@@ -31,8 +29,11 @@ class FullScreenActivity : AppCompatActivity() {
         binding = ActivityFullScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
         onBackPressedDispatcher.addCallback(onBackPressedCallBack)
+        val trailer = intent.getStringExtra("trailer")
 
-        addFullScreenListener()
+        if (trailer != null) {
+            addFullScreenListener(trailer)
+        }
         clickBackButton()
     }
 
@@ -46,7 +47,7 @@ class FullScreenActivity : AppCompatActivity() {
         }
     }
 
-    private fun addFullScreenListener() {
+    private fun addFullScreenListener(trailer: String) {
 
         val youTubePlayerView: YouTubePlayerView = binding.youtubePlayerView
         val fullScreenContainer: ViewGroup = binding.fullScreenContainer
@@ -87,8 +88,7 @@ class FullScreenActivity : AppCompatActivity() {
         val youTubePlayerListener = object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
                 this@FullScreenActivity.youTubePlayer = youTubePlayer
-                val videoId = "Mm-_TKuK15A"
-                youTubePlayer.loadOrCueVideo(lifecycle, videoId, 0f)
+                youTubePlayer.loadOrCueVideo(lifecycle, trailer, 0f)
             }
         }
 

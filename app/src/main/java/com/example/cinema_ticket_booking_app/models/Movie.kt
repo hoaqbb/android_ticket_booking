@@ -13,7 +13,8 @@ data class Movie(
     var actors: String,
     var directors: String,
     var release_date: String,
-    var description: String
+    var description: String,
+    var trailer: String
     )
 //    : Parcelable {
 //    constructor(parcel: Parcel) : this(

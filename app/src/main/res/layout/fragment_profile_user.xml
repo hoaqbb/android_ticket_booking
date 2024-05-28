@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".fragments.ProfileUserFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            tools:srcCompat="@tools:sample/avatars"/>
+        <TextView
+            android:id="@+id/txtFullname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is user name"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            tools:srcCompat="@tools:sample/avatars"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/ticket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ticket"/>
+        <Button
+            android:id="@+id/payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment"/>
+    </LinearLayout>
+
+</LinearLayout>

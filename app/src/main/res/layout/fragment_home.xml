@@ -55,6 +55,10 @@
             android:layout_height="wrap_content"
             android:nestedScrollingEnabled="false"
             android:padding="0dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvBottomSilder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

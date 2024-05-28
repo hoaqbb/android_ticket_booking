@@ -19,8 +19,6 @@ import retrofit2.Response
 
 class CinemaFragment : Fragment(R.layout.fragment_cinema), CinemaAdapter.OnItemCinemaClickListener{
     private lateinit var binding: FragmentCinemaBinding
-
-
     private lateinit var cinemaAdapter: CinemaAdapter
     private lateinit var list: List<Cinema>
 

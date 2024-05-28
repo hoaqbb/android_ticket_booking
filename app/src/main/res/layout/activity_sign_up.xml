@@ -14,7 +14,7 @@
         tools:layout_editor_absoluteY="0dp">
 
         <TextView
-            android:id="@+id/button"
+            android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
-                app:helperText="Fullname is required field."
+                app:helperText=""
                 app:helperTextTextColor="@color/red">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
-                app:helperText="Username is required field."
+                app:helperText=""
                 app:helperTextTextColor="@color/red">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
-                app:helperText="Email is required field."
+                app:helperText=""
                 app:helperTextTextColor="@color/red">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -140,7 +140,7 @@
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
                 app:passwordToggleEnabled="true"
-                app:helperText="Password is required field."
+                app:helperText=""
                 app:helperTextTextColor="@color/red">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -161,7 +161,7 @@
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
                 app:passwordToggleEnabled="true"
-                app:helperText="Confirm password is required field."
+                app:helperText=""
                 app:helperTextTextColor="@color/red">
 
                 <com.google.android.material.textfield.TextInputEditText

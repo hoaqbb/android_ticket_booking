@@ -27,6 +27,7 @@ class DetailMovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        //lay movie id tu home fragment
         val movieId = intent.getIntExtra("movie_id", -1)
 
         val infoFragment = InfoMovieFragment()
@@ -80,6 +81,7 @@ class DetailMovieActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
                 if(response.isSuccessful){
                     val movie = response.body()!! //luu y tra ve doi tuong chu ko phai mang doi tuong
+                    loadTrailer(movie.trailer)
                     binding.txtMovieName.text = movie.movie_name
                     Picasso.get().load(movie.movie_img).into(binding.imgMovie)
                     binding.txtDuration.text = movie.duration.toString()
@@ -103,5 +105,30 @@ class DetailMovieActivity : AppCompatActivity() {
             replace(R.id.frameLayout, fragment)
             commit()
         }
+    }
+    private fun loadTrailer(trailer: String) {
+        val youTubePlayerView = binding.youtubePlayerView
+
+        lifecycle.addObserver(youTubePlayerView)
+
+        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            override fun onReady(@NonNull youTubePlayer: YouTubePlayer) {
+                youTubePlayer.cueVideo(trailer, 0f)
+                youTubePlayer.pause()
+            }
+
+            override fun onStateChange(
+                youTubePlayer: YouTubePlayer,
+                state: PlayerConstants.PlayerState
+            ) {
+                if (state == PlayerConstants.PlayerState.PLAYING) {
+                    val intent =
+                        Intent(this@DetailMovieActivity, FullScreenActivity::class.java)
+                    //truyen movie trailer qua FullScreenActivity
+                    intent.putExtra("trailer", trailer)
+                    startActivity(intent)
+                }
+            }
+        })
     }
 }

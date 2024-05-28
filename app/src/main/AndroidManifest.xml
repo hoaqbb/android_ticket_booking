@@ -16,6 +16,12 @@
         android:theme="@style/Theme.Cinema_ticket_booking_app"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.InfoUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.InvoiceActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.FullScreenActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
             android:exported="false" />
@@ -24,6 +30,9 @@
             android:exported="false" />
         <activity
             android:name=".activities.DetailMovieActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.BookTicketActivity"
             android:exported="false" />
         <activity
             android:name=".activities.MainActivity"

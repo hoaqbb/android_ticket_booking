@@ -44,22 +44,28 @@
                     android:layout_height="wrap_content"
                     android:text="This is name cinema"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_margin="3dp"/>
 
                 <TextView
                     android:id="@+id/txtAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="This is address cinema"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_margin="3dp"
+                    android:lines="1"/>
 
                 <TextView
                     android:id="@+id/txtSDT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="This is phone number cinema"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_margin="3dp"/>
             </LinearLayout>
         </LinearLayout>
 

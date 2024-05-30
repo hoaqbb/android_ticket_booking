@@ -3,75 +3,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.InfoMovieFragment"
+    android:background="@color/light_gray"
     android:orientation="vertical"
-    android:backgroundTint="@color/light_gray">
+    tools:context=".fragments.InfoMovieFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="2dp">
+        android:background="@color/white"
+        android:layout_marginTop="1dp"
+        android:padding="10dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="10dp"/>
+
         <TextView
             android:id="@+id/txtMovieDes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text=""/>
+            android:text=""
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:orientation="vertical"
-        android:layout_marginTop="8dp">
+        android:background="@color/white"
+        android:padding="10dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Actors"
-            android:textStyle="bold"/>
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginVertical="10dp"/>
+
         <TextView
             android:id="@+id/txtActors"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text=""/>
+            android:text=""
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="8dp">
+        android:padding="10dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/white">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Directors"
-            android:textStyle="bold"/>
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
         <TextView
             android:id="@+id/txtDirectors"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text=""/>
+            android:text=""
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:layout_marginVertical="10dp"
+            android:textSize="16sp"/>
     </LinearLayout>
 </LinearLayout>
-
-<!--    <?xml version="1.0" encoding="utf-8"?>-->
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--xmlns:tools="http://schemas.android.com/tools"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent"-->
-<!--tools:context=".fragments.InfoMovieFragment"-->
-<!--android:orientation="vertical"-->
-<!--android:backgroundTint="@color/light_gray">-->
-<!--<TextView-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:text="Hello"-->
-<!--    android:textSize="100sp"-->
-<!--    android:gravity="center"/>-->
-<!--</LinearLayout>-->

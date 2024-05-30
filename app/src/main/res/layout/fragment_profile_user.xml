@@ -3,41 +3,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ProfileUserFragment"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            tools:srcCompat="@tools:sample/avatars"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="999dp"
+            android:layout_margin="5dp"
+            android:elevation="10dp">
+
+            <ImageView
+                android:id="@+id/roundedImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/mona_lisa"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                />
+        </androidx.cardview.widget.CardView>
         <TextView
             android:id="@+id/txtFullname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="This is user name"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"/>
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            tools:srcCompat="@tools:sample/avatars"/>
     </LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/ticket"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ticket"/>
-        <Button
-            android:id="@+id/payment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Payment"/>
-    </LinearLayout>
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:id="@+id/ticket"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/blueCustom"
+                android:layout_marginRight="10dp"
+                android:text="Ticket"/>
+            <Button
+                android:id="@+id/payment"
+                android:textAllCaps="false"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/blueCustom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment"/>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

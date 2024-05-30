@@ -62,29 +62,64 @@ class HomeFragment : Fragment(R.layout.fragment_home), MovieAdapter.OnItemClickL
     }
 
     //top slider
+//    private fun slideShow(imageSlider: ImageSlider){
+//        val imageList = ArrayList<SlideModel>()
+//
+//        imageList.add(SlideModel("https://bom.so/QoKB2w"))
+//        imageList.add(SlideModel("https://bom.so/N4ujZO"))
+//        imageList.add(SlideModel("https://bom.so/yH6X9U"))
+//
+//        imageSlider.setImageList(imageList, ScaleTypes.CENTER_CROP)
+//    }
     private fun slideShow(imageSlider: ImageSlider){
         val imageList = ArrayList<SlideModel>()
 
-        imageList.add(SlideModel("https://bom.so/QoKB2w"))
-        imageList.add(SlideModel("https://bom.so/N4ujZO"))
-        imageList.add(SlideModel("https://bom.so/yH6X9U"))
+        imageList.add(SlideModel("https://bom.so/G98mfd"))
+        imageList.add(SlideModel("https://bom.so/X5zx2J"))
+        imageList.add(SlideModel("https://bom.so/dqsJA5"))
+        imageList.add(SlideModel("https://bom.so/IfnhEw"))
+        imageList.add(SlideModel("https://bom.so/pXI6Bz"))
+        imageList.add(SlideModel("https://bom.so/1b8HYd"))
 
-        imageSlider.setImageList(imageList, ScaleTypes.CENTER_CROP)
+        imageSlider.setImageList(imageList, ScaleTypes.FIT)
     }
 
+
     //bottom slider
+//    private fun bottomSlideShow(){
+//        val bottomImageList = mutableListOf <Cinema>()
+//        bottomImageList.add(Cinema(-1, "Xem Phim Hay - Ngất Ngây Cùng Bánh Phồng Dế Rec Rec",
+//                            "","https://bom.so/QoKB2w", ""))
+//        bottomImageList.add(Cinema(-1, "Xem Phim Hay - Ngất Ngây Cùng Bánh Phồng Dế Rec Rec",
+//                            "","https://bom.so/N4ujZO", ""))
+//        bottomImageList.add(Cinema(-1, "Xem Phim Hay - Ngất Ngây Cùng Bánh Phồng Dế Rec Rec",
+//                            "","https://bom.so/yH6X9U", ""))
+//        bottomImageList.add(Cinema(-1, "Xem Phim Hay - Ngất Ngây Cùng Bánh Phồng Dế Rec Rec",
+//                            "","https://bom.so/QoKB2w", ""))
+//        bottomImageList.add(Cinema(-1, "Xem Phim Hay - Ngất Ngây Cùng Bánh Phồng Dế Rec Rec",
+//                            "","https://bom.so/N4ujZO", ""))
+//
+//        val adapter = BottomSliderAdapter(bottomImageList)
+//        bottomSlider.adapter = adapter
+//        bottomSlider.layoutManager = LinearLayoutManager(
+//            context,
+//            LinearLayoutManager.HORIZONTAL,
+//            false
+//        )
+//    }
+
     private fun bottomSlideShow(){
         val bottomImageList = mutableListOf <Cinema>()
+        bottomImageList.add(Cinema(-1, "Cine Với Cạ Cứng - Tụ Tập Vui 'Cóa Chời'",
+            "","https://bom.so/YCPJm1", ""))
         bottomImageList.add(Cinema(-1, "Xem Phim Hay - Ngất Ngây Cùng Bánh Phồng Dế Rec Rec",
-                            "","https://bom.so/QoKB2w", ""))
-        bottomImageList.add(Cinema(-1, "Xem Phim Hay - Ngất Ngây Cùng Bánh Phồng Dế Rec Rec",
-                            "","https://bom.so/N4ujZO", ""))
-        bottomImageList.add(Cinema(-1, "Xem Phim Hay - Ngất Ngây Cùng Bánh Phồng Dế Rec Rec",
-                            "","https://bom.so/yH6X9U", ""))
-        bottomImageList.add(Cinema(-1, "Xem Phim Hay - Ngất Ngây Cùng Bánh Phồng Dế Rec Rec",
-                            "","https://bom.so/QoKB2w", ""))
-        bottomImageList.add(Cinema(-1, "Xem Phim Hay - Ngất Ngây Cùng Bánh Phồng Dế Rec Rec",
-                            "","https://bom.so/N4ujZO", ""))
+            "","https://bom.so/DTSz0s", ""))
+        bottomImageList.add(Cinema(-1, "ZaloPay Giảm Đến 50K Khi Mua Vé Galaxy Cinema",
+            "","https://bom.so/F2EsH6", ""))
+        bottomImageList.add(Cinema(-1, "Khởi Động 'Giải Đua Mùa Hè' GalaXummer 2024",
+            "","https://bom.so/0LgBVR", ""))
+        bottomImageList.add(Cinema(-1, "Voucher ShopeePay Giảm 20K Dành Tặng Các Stars",
+            "","https://bom.so/gTtgv1", ""))
 
         val adapter = BottomSliderAdapter(bottomImageList)
         bottomSlider.adapter = adapter
@@ -94,6 +129,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), MovieAdapter.OnItemClickL
             false
         )
     }
+
 
     //Doc phim tu api theo trang thai
     //true: Now showing, false: Comming soon

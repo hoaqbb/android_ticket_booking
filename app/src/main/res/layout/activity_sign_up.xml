@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".activities.SignUpActivity">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
@@ -25,15 +26,117 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="101dp"
             android:layout_gravity="center"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:src="@mipmap/movie_material"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register Star Membership"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:id="@+id/llStars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="30dp">
+
+
+                    <ImageView
+                        android:id="@+id/btnStars"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp"
+                        android:background="@null"
+                        android:src="@mipmap/star"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Stars"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llGift"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginRight="30dp">
+
+                    <ImageView
+                        android:id="@+id/btnGift"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp"
+                        android:background="@null"
+                        android:src="@mipmap/gift"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Gift"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llSpecialOffer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/btnSpecialOffer"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp"
+                        android:background="@null"
+                        android:src="@mipmap/special_offer" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Special offer"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtFullnameContainer"
@@ -49,7 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/baseline_account_circle_24"
-                    android:hint="Enter your fullname"
+                    android:hint=" Fullname "
                     android:inputType="textPersonName"
                     android:lines="1"
                     android:textColorHint="@color/light_gray" />
@@ -69,7 +172,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/baseline_account_circle_24"
-                    android:hint="Enter your username"
+                    android:hint=" Username "
                     android:inputType="textPersonName"
                     android:lines="1"
                     android:textColorHint="@color/light_gray" />
@@ -89,7 +192,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/baseline_mail_outline_24"
-                    android:hint="Email"
+                    android:hint=" Email "
                     android:inputType="textEmailAddress"
                     android:lines="1"
                     android:textColorHint="@color/light_gray" />
@@ -104,7 +207,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gender (Optional):"
+                    android:text="Gender (Optional)"
                     android:textColor="@color/black" />
 
                 <RadioGroup
@@ -117,12 +220,15 @@
                         android:id="@+id/rdMale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
                         android:text="Male" />
+
 
                     <RadioButton
                         android:id="@+id/rdFemale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
                         android:text="Female" />
 
                     <RadioButton
@@ -139,16 +245,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
-                app:passwordToggleEnabled="true"
                 app:helperText=""
-                app:helperTextTextColor="@color/red">
+                app:helperTextTextColor="@color/red"
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/baseline_lock_24"
-                    android:hint="Password"
+                    android:hint=" Password "
                     android:inputType="textPassword"
                     android:lines="1"
                     android:textColorHint="@color/light_gray" />
@@ -160,16 +266,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
-                app:passwordToggleEnabled="true"
                 app:helperText=""
-                app:helperTextTextColor="@color/red">
+                app:helperTextTextColor="@color/red"
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtConfirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/baseline_lock_24"
-                    android:hint="Confirm password"
+                    android:hint=" Confirm password "
                     android:inputType="textPassword"
                     android:lines="1"
                     android:textColorHint="@color/light_gray" />
@@ -205,4 +311,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+
+

@@ -17,16 +17,26 @@
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
             android:layout_margin="10dp"
+            android:backgroundTint="@color/white"
             app:drawableStartCompat="@drawable/baseline_arrow_back_24" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:src="@mipmap/guest" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Login With Your Account"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,9 +70,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
-                app:passwordToggleEnabled="true"
                 app:helperText=""
-                app:helperTextTextColor="@color/red">
+                app:helperTextTextColor="@color/red"
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtPassword"
@@ -81,34 +91,52 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:text="Forget password?"
-                android:textColor="@color/blue" />
+                android:text="Forgot password?"
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnLogin"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:padding="10dp"
+            >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/orange"
+                android:layout_above="@+id/lnlYS"
+                android:text="Login" />
 
-            <TextView
+
+            <LinearLayout
+                android:id="@+id/lnlYS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="You don't have an account? " />
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                >
+            <TextView
+                android:id="@+id/youDontHaveAcc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You don't have an account? "
+                android:textColor="@color/black" />
+
 
             <TextView
                 android:id="@+id/txtSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Sign up"
                 android:textColor="@color/blue"
                 android:textStyle="bold" />
-        </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

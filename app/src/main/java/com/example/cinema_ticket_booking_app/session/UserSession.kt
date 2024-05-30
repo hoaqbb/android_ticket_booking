@@ -1,6 +1,8 @@
 package com.example.cinema_ticket_booking_app.session
 
 import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
+import com.example.cinema_ticket_booking_app.R
 import com.example.cinema_ticket_booking_app.models.User
 
 object UserSession {
@@ -27,6 +29,21 @@ object UserSession {
         with(sharedPref.edit()) {
             remove("user_id")
             apply()
+        }
+    }
+
+    fun refreshFragment(context: Context?) {
+        context?.let {
+            val fragmentManager = (context as? AppCompatActivity)?.supportFragmentManager
+            fragmentManager?.let {
+                val currentFragment = fragmentManager.findFragmentById(R.id.AccountFragment)
+                currentFragment?.let {
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.detach(it)
+                    fragmentTransaction.attach(it)
+                    fragmentTransaction.commit()
+                }
+            }
         }
     }
 }

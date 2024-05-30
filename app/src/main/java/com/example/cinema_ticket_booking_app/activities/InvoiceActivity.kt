@@ -1,6 +1,7 @@
 package com.example.cinema_ticket_booking_app.activities
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -34,7 +35,6 @@ class InvoiceActivity : AppCompatActivity() {
         val amount = intent!!.getStringExtra("amount")
         getMovieShowInfo(listSelectedSeat[0], showId)
         binding.txtTotalAmount.text = amount
-        binding.txtTotal.text = amount
 
         binding.btnPurchase.setOnClickListener{
             val confirmDialog = AlertDialog.Builder(this)
@@ -42,9 +42,11 @@ class InvoiceActivity : AppCompatActivity() {
                 setTitle("Booking Confirmation")
                 setMessage("Are you sure you want to book the ticket?")
                 setPositiveButton("Yes") { dialog, _ ->
-                    changeStatusSeat(listSelectedSeat)
                     createPayment {
-                        createTicket(showId, it, listSelectedSeat)
+                        if(it>0){
+                            createTicket(showId, it, listSelectedSeat)
+                            changeStatusSeat(listSelectedSeat)
+                        }
                     }
                     dialog.dismiss()
                 }
@@ -53,6 +55,10 @@ class InvoiceActivity : AppCompatActivity() {
                 }
                 show()
             }
+        }
+
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
         }
     }
 
@@ -70,6 +76,7 @@ class InvoiceActivity : AppCompatActivity() {
                     binding.txtStartTime.text = rs.start_time
                     binding.txtEndTime.text = rs.end_time
                     binding.txtTime.text = rs.start_time
+                    binding.txtRoomName.text = rs.room!!.room_name
 
                     //lay thong tin thu, ngay, thang, nam hien tai
                     val currentDate = LocalDate.now()
@@ -161,15 +168,16 @@ class InvoiceActivity : AppCompatActivity() {
                     with(confirmDialog){
                         setMessage("Ticket booking successful!!!")
                         setPositiveButton("Ok") { dialog, _ ->
+                            finish()
+                            val intent = Intent(this@InvoiceActivity, MainActivity::class.java)
+                            startActivity(intent)
                             dialog.dismiss()
                         }
                         show()
                     }
                 }
             }
-            override fun onFailure(call: Call<String>, t: Throwable) {
-
-            }
+            override fun onFailure(call: Call<String>, t: Throwable) { }
         })
     }
 }

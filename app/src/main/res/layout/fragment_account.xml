@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
+    android:id="@+id/AccountFragment"
     tools:context=".fragments.AccountFragment">
 
     <LinearLayout
@@ -275,7 +276,8 @@
                 android:backgroundTint="@color/white"
                 android:outlineProvider="none"
                 android:text="Logout"
-                android:textColor="@color/light_orange"
+                android:textSize="18sp"
+                android:textColor="@color/orange"
                 android:textAllCaps="false"
                 android:visibility="gone"/>
 

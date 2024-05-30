@@ -38,13 +38,20 @@ class DetailMovieActivity : AppCompatActivity() {
         //hien thi fragment info ban dau
         changeFragment(infoFragment, movieId)
 
+        binding.txtInfo.setTextColor(binding.txtInfo.context.getColor(R.color.blueCustom))
+        binding.txtShowtimes.setTextColor(binding.txtShowtimes.context.getColor(R.color.light_gray))
+
         //thay doi fragment khi click Info
         binding.txtInfo.setOnClickListener{
             changeFragment(infoFragment, movieId)
+            binding.txtInfo.setTextColor(binding.txtInfo.context.getColor(R.color.blueCustom))
+            binding.txtShowtimes.setTextColor(binding.txtShowtimes.context.getColor(R.color.light_gray))
         }
         //thay doi fragment khi click Showtimes
         binding.txtShowtimes.setOnClickListener {
             changeFragment(showtimesFragment, movieId)
+            binding.txtShowtimes.setTextColor(binding.txtShowtimes.context.getColor(R.color.blueCustom))
+            binding.txtInfo.setTextColor(binding.txtInfo.context.getColor(R.color.light_gray))
         }
 
       //this is video
@@ -55,7 +62,7 @@ class DetailMovieActivity : AppCompatActivity() {
 
         youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(@NonNull youTubePlayer: YouTubePlayer) {
-                val videoId = "Mm-_TKuK15A"
+                val videoId = ""
                 youTubePlayer.cueVideo(videoId, 0f)
                 youTubePlayer.pause()
             }

@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Cinema_ticket_booking_app"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".adapters.ReceiptAdapter"
+            android:exported="false" />
+        <activity
             android:name=".activities.InfoUserActivity"
             android:exported="false" />
         <activity

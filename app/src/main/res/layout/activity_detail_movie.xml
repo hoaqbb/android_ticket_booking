@@ -62,16 +62,21 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_marginVertical="3dp"
                     android:id="@+id/txtDuration"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    app:drawableStartCompat="@drawable/baseline_access_time_24"
+                    android:drawablePadding="5dp"/>
 
                 <TextView
                     android:id="@+id/txtReleaseDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    app:drawableStartCompat="@drawable/baseline_calendar_today_24"
+                    android:drawablePadding="5dp"/>
             </LinearLayout>
 
         </LinearLayout>

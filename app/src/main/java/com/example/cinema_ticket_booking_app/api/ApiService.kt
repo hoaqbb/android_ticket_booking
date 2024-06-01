@@ -53,6 +53,8 @@ interface ApiService {
     //tra ve payment_id vua insert
     @POST("payment/api/create-payment")
     fun createPayment(@Body payment: Payment): Call<Int>
+    @GET("payment/api/get-payment-info-by-id")
+    fun getPaymentInfoById(@Query ("payment_id") payment_id: Int): Call<Ticket>
 
 //    @GET("payment/api/get-payments-by-user-id")
 

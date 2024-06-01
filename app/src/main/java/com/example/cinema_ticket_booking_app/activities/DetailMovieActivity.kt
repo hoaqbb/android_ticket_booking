@@ -1,5 +1,6 @@
 package com.example.cinema_ticket_booking_app.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -85,13 +86,14 @@ class DetailMovieActivity : AppCompatActivity() {
     private fun getMovieById(movie_id: Int){
         val call = ApiCall.service.getMovieById(movie_id)
         call.enqueue(object : Callback<Movie> {
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
                 if(response.isSuccessful){
                     val movie = response.body()!! //luu y tra ve doi tuong chu ko phai mang doi tuong
                     loadTrailer(movie.trailer)
                     binding.txtMovieName.text = movie.movie_name
                     Picasso.get().load(movie.movie_img).into(binding.imgMovie)
-                    binding.txtDuration.text = movie.duration.toString()
+                    binding.txtDuration.text = movie.duration.toString() + " Minutes"
                     binding.txtReleaseDate.text = movie.release_date
 
                 }

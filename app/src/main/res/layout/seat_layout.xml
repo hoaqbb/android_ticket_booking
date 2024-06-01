@@ -4,7 +4,8 @@
     android:layout_width="25dp"
     android:layout_height="25dp"
     app:cardCornerRadius="5dp"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:foreground="@drawable/edit_text_background">
     <TextView
         android:id="@+id/txtNameSeat"
         android:layout_width="match_parent"

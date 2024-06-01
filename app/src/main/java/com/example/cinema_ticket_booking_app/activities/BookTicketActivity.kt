@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.cinema_ticket_booking_app.adapters.SeatAdapter
@@ -22,6 +23,7 @@ class BookTicketActivity : AppCompatActivity(), SeatAdapter.OnItemClickListener 
     private lateinit var list: List<RoomSeat>
     private lateinit var txtTotalAmount: TextView
     private lateinit var btnContinue: Button
+    private lateinit var btnBack: ImageButton
 
     //mang tinh~ luu id cac ghe duoc chon
     object StaticArray{
@@ -34,6 +36,7 @@ class BookTicketActivity : AppCompatActivity(), SeatAdapter.OnItemClickListener 
         setContentView(binding.root)
         txtTotalAmount = binding.txtTotalAmount
         btnContinue = binding.btnContinue
+        btnBack = binding.btnBack
 
 //        intent.putExtra("show_id", currentItem.show_id)
 //        intent.putExtra("movie_name", currentItem.movie.movie_name)
@@ -50,6 +53,7 @@ class BookTicketActivity : AppCompatActivity(), SeatAdapter.OnItemClickListener 
         binding.txtCinemaName.text = cinemaName
         binding.txtShowtime.text = startTime
 
+
         fetchSeats(showId)
 
         btnContinue.setOnClickListener {
@@ -62,6 +66,8 @@ class BookTicketActivity : AppCompatActivity(), SeatAdapter.OnItemClickListener 
                 startActivity(intent)
             }
         }
+
+        btnBack.setOnClickListener { onBackPressed() }
     }
 
     private fun fetchSeats(show_id: Int){

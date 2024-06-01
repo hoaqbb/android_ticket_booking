@@ -164,20 +164,17 @@ class InvoiceActivity : AppCompatActivity() {
         call.enqueue(object : Callback<String>{
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if(response.isSuccessful){
-                    val confirmDialog = AlertDialog.Builder(this@InvoiceActivity)
-                    with(confirmDialog){
-                        setMessage("Ticket booking successful!!!")
-                        setPositiveButton("Ok") { dialog, _ ->
-                            finish()
-                            val intent = Intent(this@InvoiceActivity, MainActivity::class.java)
-                            startActivity(intent)
-                            dialog.dismiss()
-                        }
-                        show()
-                    }
+                    finish()
+                    val intent = Intent(this@InvoiceActivity, ReceiptActivity::class.java)
+//                    val intent = Intent(this@InvoiceActivity, MainActivity::class.java)
+                    intent.putExtra("payment_id", paymentId)
+                    startActivity(intent)
                 }
             }
-            override fun onFailure(call: Call<String>, t: Throwable) { }
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                Log.d("Error", t.message.toString())
+                Log.d("Error", t.cause.toString())
+            }
         })
     }
 }

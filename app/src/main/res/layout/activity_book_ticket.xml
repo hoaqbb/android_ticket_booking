@@ -7,32 +7,106 @@
     tools:context=".activities.BookTicketActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtCinemaName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="This is cinema name"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="38dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:src="@drawable/baseline_arrow_back_24"/>
+
         <TextView
-            android:id="@+id/txtMovieName"
+            android:id="@+id/txtCinemaName"
+            android:layout_width="315dp"
+            android:layout_height="45dp"
+            android:text="This is cinema name"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.012" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Movie name"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:orientation="vertical"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtMovieName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Movie name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="37dp"
+                tools:layout_editor_absoluteY="0dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2D SUBTITLES"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="37dp"
+                tools:layout_editor_absoluteY="0dp" />
+                <Button
+                    android:id="@+id/txtRoomName"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="7dp"
+                    android:backgroundTint="@color/light_orange"
+                    android:clickable="false"
+                    android:text="L1"
+                    android:textSize="14sp"
+                    android:padding="0dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
         <TextView
             android:id="@+id/txtShowtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="20dp"
             android:text="Showtime"
-            android:textSize="18sp"/>
-    </LinearLayout>
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:foreground="@drawable/edit_text_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvSeat"
@@ -40,32 +114,143 @@
         android:layout_height="wrap_content"
         android:padding="10dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:layout_marginVertical="20dp">
         <TextView
-            android:id="@+id/txtTotalAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SCREEN"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/light_orange"/>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:padding="20dp"
+        android:foreground="@drawable/edit_text_background">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:foreground="@drawable/edit_text_background"
+                app:cardCornerRadius="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Single"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:backgroundTint="@color/black"
+                android:foreground="@color/light_orange"
+                app:cardCornerRadius="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selected"
+                android:textColor="@color/black"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout3"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:foreground="@color/light_gray"
+                app:cardCornerRadius="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Sold"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="Total: "
+            android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@color/light_orange"/>
+            android:layout_gravity="bottom"
+            android:gravity="center"/>
+        <LinearLayout
+            android:layout_width="210dp"
+            android:layout_height="39dp"
+            android:layout_gravity="bottom">
+            <TextView
+                android:id="@+id/txtTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/light_orange"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₫"
+                android:textColor="@color/light_orange"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="2dp"/>
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnContinue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="Continue"
-
-            android:backgroundTint="@color/light_orange"/>
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end|bottom"
+            android:backgroundTint="@color/light_orange"
+            android:text="continue"
+            android:textSize="12sp"
+            android:textColor="@color/white" />
     </LinearLayout>
+
+
 </LinearLayout>

@@ -245,7 +245,7 @@
                 android:id="@+id/txtTotalAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="VND"
+                android:text="₫"
                 android:textAlignment="textEnd"
                 android:textColor="@color/black"
                 android:textStyle="bold" />

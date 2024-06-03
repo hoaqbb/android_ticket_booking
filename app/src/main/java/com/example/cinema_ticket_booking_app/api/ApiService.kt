@@ -1,9 +1,7 @@
 package com.example.cinema_ticket_booking_app.api
 
 import com.example.cinema_ticket_booking_app.models.*
-import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -56,7 +54,8 @@ interface ApiService {
     @GET("payment/api/get-payment-info-by-id")
     fun getPaymentInfoById(@Query ("payment_id") payment_id: Int): Call<Ticket>
 
-//    @GET("payment/api/get-payments-by-user-id")
+    @GET("payment/api/get-payments-by-user-id")
+    fun getPaymentsByUserId(@Query("user_id") user_id: Int): Call<List<Ticket>>
 
     @POST("ticket/api/create-ticket")
     fun createTicket(

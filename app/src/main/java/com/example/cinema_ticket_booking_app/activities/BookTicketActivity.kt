@@ -97,12 +97,27 @@ class BookTicketActivity : AppCompatActivity(), SeatAdapter.OnItemClickListener 
         if(isSelected) {
             //luu id seat vao mang neu duoc chon
             StaticArray.listSelectedSeat.add(item.seat_id!!)
-            txtTotalAmount.text = (txtTotalAmount.text.toString().toInt() + (item.price!!)).toString()
+            //kiem tra tong tien > 0
+            if( txtTotalAmount.text.length>1) {
+                //replace dau . trong chuoi va chuyen thanh Int + gia ve
+                //roi chuyen ve lai chuoi format theo dang 140.000
+                txtTotalAmount.text =
+                    String.format("%,d", txtTotalAmount.text.toString().replace(".", "").toInt() + (item.price!!))
+            } else{
+                txtTotalAmount.text =
+                    String.format("%,d", txtTotalAmount.text.toString().toInt() + (item.price!!))
+            }
         } else {
             //loai id seat ra khoi mang neu ko dc chon nua
             if(StaticArray.listSelectedSeat.contains(item.seat_id))
                 StaticArray.listSelectedSeat.remove(item.seat_id)
-            txtTotalAmount.text = (txtTotalAmount.text.toString().toInt() - (item.price!!)).toString()
+            if( txtTotalAmount.text.length>1) {
+                txtTotalAmount.text =
+                    String.format("%,d", txtTotalAmount.text.toString().replace(".", "").toInt() - (item.price!!))
+            } else{
+                txtTotalAmount.text =
+                    String.format("%,d", txtTotalAmount.text.toString().toInt() - (item.price!!))
+            }
         }
     }
 

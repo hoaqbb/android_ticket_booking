@@ -114,9 +114,8 @@ class InvoiceActivity : AppCompatActivity() {
 
     //tao payment
     private fun createPayment(callback: (Int) -> Unit){
-        val amount = binding.txtTotalAmount.text.toString().toInt()
+        val amount = binding.txtTotalAmount.text.toString().replace(".", "").toInt()
         val totalTicket = listSelectedSeat.size
-        Log.d("size", totalTicket.toString())
         val current = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
         val user = UserSession.loadUserSession(this)
@@ -166,7 +165,6 @@ class InvoiceActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     finish()
                     val intent = Intent(this@InvoiceActivity, ReceiptActivity::class.java)
-//                    val intent = Intent(this@InvoiceActivity, MainActivity::class.java)
                     intent.putExtra("payment_id", paymentId)
                     startActivity(intent)
                 }

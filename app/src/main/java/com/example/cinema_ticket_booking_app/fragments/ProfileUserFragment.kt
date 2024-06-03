@@ -36,7 +36,7 @@ class ProfileUserFragment : Fragment(R.layout.fragment_profile_user) {
 
         binding.payment.setOnClickListener {
             val intent = Intent(requireContext(), InfoUserActivity::class.java)
-            intent.putExtra("title", "Payment History")
+            intent.putExtra("title", "Payment History ")
             startActivity(intent)
         }
 

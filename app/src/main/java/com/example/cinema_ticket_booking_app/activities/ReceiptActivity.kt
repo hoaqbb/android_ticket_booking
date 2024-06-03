@@ -28,6 +28,7 @@ class ReceiptActivity : AppCompatActivity() {
         getInfoPayment(paymentId)
 
         binding.btnOk.setOnClickListener {
+            BookTicketActivity.StaticArray.listSelectedSeat.clear()
             finish()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -53,7 +54,7 @@ class ReceiptActivity : AppCompatActivity() {
                     binding.txtDate.text = current.format(formatter)
 
                     binding.txtQuantity.text = paymentInfo.payment?.total_ticket.toString()
-                    binding.txtTotalAmount.text = paymentInfo.payment?.amount.toString() + " VNĐ"
+                    binding.txtTotalAmount.text = String.format("%,d", paymentInfo.payment?.amount) + " ₫"
                     binding.txtDateBooking.text = paymentInfo.payment?.date
                 }
             }

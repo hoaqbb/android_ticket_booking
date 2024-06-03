@@ -23,6 +23,7 @@ import retrofit2.Response
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
+import kotlin.math.ceil
 
 class ShowtimesMovieFragment : Fragment(R.layout.fragment_showtimes_movie){
     private lateinit var binding: FragmentShowtimesMovieBinding
@@ -82,7 +83,7 @@ class ShowtimesMovieFragment : Fragment(R.layout.fragment_showtimes_movie){
                     rcvShowtimes.adapter = showtimesAdapter
                     rcvShowtimes.layoutManager = GridLayoutManager(
                         context,
-                        showtimesAdapter.itemCount/4,
+                        1,
                         GridLayoutManager.HORIZONTAL,
                         false)
                 }

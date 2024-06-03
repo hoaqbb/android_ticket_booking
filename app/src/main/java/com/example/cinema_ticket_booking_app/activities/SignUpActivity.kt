@@ -93,6 +93,7 @@ class SignUpActivity : AppCompatActivity() {
                         override fun onResponse(call: Call<User>, response: Response<User>) {
                             if (response.isSuccessful) {
                                 showAlertDialog("Account successfully created!")
+                                finish()
                                 //luu user session luon khoi dang nhap lai, hoac bat dang nhap luon
                                 startActivity(Intent(this@SignUpActivity ,LoginActivity::class.java))
 
